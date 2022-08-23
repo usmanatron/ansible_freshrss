@@ -30,8 +30,12 @@
     project_src: "{{ app_folder }}"
     state: present
 
-# - name: Add DB backups
-#   ansible.builtin.include_role:
-#     name: backup_pgsql
-#   vars:
-#     app_name: "{{ app_name }}"
+# Backups
+- name: Add DB backups
+  ansible.builtin.include_role:
+    name: usmanatron.backup_postgresql
+  vars:
+    parent_directory: "{{ app_folder }}"
+    database_name: "{{ app_name }}"
+    database_username: "{{ freshrss_database_username }}"
+    database_password: "{{ freshrss_database_password }}"
