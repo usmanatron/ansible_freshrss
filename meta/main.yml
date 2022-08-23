@@ -1,11 +1,10 @@
 galaxy_info:
   author: Usman Iqbal
   namespace: usmanatron
-  description: your role description
-
+  role_name: freshrss
+  description: Ansible role to install FreshRSS
   license: MIT
-
-  min_ansible_version: "2.1"
+  min_ansible_version: "2.10"
 
   platforms:
   - name: Debian

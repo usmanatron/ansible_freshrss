@@ -1,0 +1,21 @@
+# {{ ansible_managed }}
+version: "3.7"
+
+services:
+  app:
+    image: "freshrss/freshrss:{{ freshrss_version }}"
+    ports:
+      - 8080:80
+    restart: always
+    environment:
+      CRON_MIN: "{{ freshrss_cron_minutes }}"
+  db:
+    image: postgres:{{ freshrss_database_version }}
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_USER={{ freshrss_database_username }}
+      - POSTGRES_PASSWORD={{ freshrss_database_password }}
+    volumes:
+      -  {{ app_folder }}/database:/var/lib/postgresql/data

@@ -1,2 +1,4 @@
 ---
-# vars file for ansible_role_template
+freshrss_version: "1.16.0"
+freshrss_cron_minutes: "13,43"
+freshrss_database_password: ""
