@@ -1,4 +1,3 @@
 ---
-roles:
-  - name: usmanatron.backup_postgresql
-    version: 0.0.1
+- name: usmanatron.backup_postgresql
+  version: 0.0.1
