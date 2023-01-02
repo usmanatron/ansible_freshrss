@@ -1,6 +1,6 @@
 ---
 # Setup
-- name: Add {{ app_name }} user
+- name: Add user {{ app_name }}
   ansible.builtin.user:
     name: "{{ app_name }}"
     state: present
@@ -13,10 +13,13 @@
 
 - name: Add app directories
   ansible.builtin.file:
-    path: "{{ app_folder }}/database"
+    path: "{{ app_folder }}/{{ item }}"
     mode: 0644
     owner: "{{ app_name }}"
     state: directory
+  loop:
+    - "data_database"
+    - "data_config"
 
 # Application
 - name: Add docker-compose file
@@ -39,3 +42,10 @@
     database_name: "{{ app_name }}"
     database_username: "{{ freshrss_database_username }}"
     database_password: "{{ freshrss_database_password }}"
+
+- name: Add config backups
+  ansible.builtin.include_role:
+    name: usmanatron.backup_directory
+  vars:
+    parent_directory: "{{ app_folder }}"
+    directory: data_config

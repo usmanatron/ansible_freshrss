@@ -4,9 +4,11 @@ version: "3.7"
 services:
   app:
     image: "freshrss/freshrss:{{ freshrss_version }}"
+    restart: always
     ports:
       - 8080:80
-    restart: always
+    volumes:
+      - data:/var/www/FreshRSS/data
     environment:
       CRON_MIN: "{{ freshrss_cron_minutes }}"
   db:
