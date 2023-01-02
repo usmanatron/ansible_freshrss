@@ -1,4 +1,4 @@
 ---
 app_name: freshrss
 app_folder: /apps/{{ app_name }}
-freshrss_listen: "{{ freshrss_listen_host }}:{{ freshrss_port }}"
+freshrss_listen: "{{ freshrss_listen_host }}:{{ freshrss_listen_port }}"
