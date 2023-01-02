@@ -1,6 +1,9 @@
 ---
-app_name: freshrss
-app_folder: /apps/{{ app_name }}
+freshrss_version: ""
+freshrss_listen_host: 0.0.0.0
+freshrss_listen_port: 8081
+
 freshrss_cron_minutes: "13,43"
 freshrss_database_username: "{{ app_name }}"
+freshrss_database_password: ""
 freshrss_database_version: 12.5

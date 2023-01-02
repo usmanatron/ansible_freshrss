@@ -6,11 +6,12 @@ services:
     image: "freshrss/freshrss:{{ freshrss_version }}"
     restart: always
     ports:
-      - 8080:80
+      - {{ freshrss_listen_port }}:80
     volumes:
       - data:/var/www/FreshRSS/data
     environment:
       CRON_MIN: "{{ freshrss_cron_minutes }}"
+      LISTEN: "{{ freshrss_listen }}"
   db:
     image: postgres:{{ freshrss_database_version }}
     ports:
